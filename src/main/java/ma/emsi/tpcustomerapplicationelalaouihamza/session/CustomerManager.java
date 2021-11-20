@@ -45,4 +45,8 @@ public class CustomerManager {
             //throw new RuntimeException(e);
         //}
     }
+
+    public Customer getCustomer(int idCustomer) {
+        return em.find(Customer.class, idCustomer);
+    }
 }
