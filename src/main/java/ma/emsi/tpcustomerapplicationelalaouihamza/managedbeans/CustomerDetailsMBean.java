@@ -15,7 +15,7 @@ import ma.emsi.tpcustomerapplicationelalaouihamza.session.CustomerManager;
  *
  * @author dell
  */
-@Named
+@Named(value = "customerDetailsMBean")
 @ViewScoped
 public class CustomerDetailsMBean implements Serializable {
   private int idCustomer;
