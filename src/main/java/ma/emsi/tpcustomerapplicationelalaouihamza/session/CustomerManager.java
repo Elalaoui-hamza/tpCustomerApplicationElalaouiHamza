@@ -21,10 +21,10 @@ import ma.emsi.tpcustomerapplicationelalaouihamza.entities.Customer;
 @Stateless
 public class CustomerManager {
 
-    @PersistenceContext(unitName = "customerPU")
+    @PersistenceContext(name = "customerPU")
     private EntityManager em;
-    @Resource
-    private javax.transaction.UserTransaction utx;
+    //@Resource
+    //private javax.transaction.UserTransaction utx;
 
     public List<Customer> getAllCustomers() {
         Query query = em.createNamedQuery("Customer.findAll");
@@ -36,13 +36,13 @@ public class CustomerManager {
     }
 
     public void persist(Customer customer) {
-        try {
-            utx.begin();
+        //try {
+            //utx.begin();
             em.persist(customer);
-            utx.commit();
-        } catch (Exception e) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
-            throw new RuntimeException(e);
-        }
+            //utx.commit();
+        //} catch (Exception e) {
+            //Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+            //throw new RuntimeException(e);
+        //}
     }
 }
