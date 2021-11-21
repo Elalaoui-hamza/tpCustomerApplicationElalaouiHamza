@@ -15,7 +15,7 @@
         <f:view>
 
 
-            <h:form>
+            <h:form rendered='#{customerDetailsMBean.details != null}'>
                 <h1><h:outputText value="Create/Edit"/></h1>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="CustomerId:" for="customerId" />
@@ -47,6 +47,7 @@
                     <h:commandButton id="update" value="Enregistrer" action="#{customerDetailsMBean.update}"/>
                 </h:panelGrid>
             </h:form>
+            <h:outputText value="Aucun client avec l'id #{customerDetailsMBean.idCustomer} !" rendered='#{customerDetailsMBean.details == null}'/>
             <h:messages/>
         </f:view>
 
