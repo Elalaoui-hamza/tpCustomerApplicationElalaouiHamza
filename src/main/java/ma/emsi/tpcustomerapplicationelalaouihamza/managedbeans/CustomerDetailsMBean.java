@@ -7,9 +7,12 @@ package ma.emsi.tpcustomerapplicationelalaouihamza.managedbeans;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import ma.emsi.tpcustomerapplicationelalaouihamza.entities.Customer;
+import ma.emsi.tpcustomerapplicationelalaouihamza.entities.DiscountCode;
 import ma.emsi.tpcustomerapplicationelalaouihamza.session.CustomerManager;
+import ma.emsi.tpcustomerapplicationelalaouihamza.session.DiscountCodeManager;
 
 /**
  *
@@ -20,9 +23,13 @@ import ma.emsi.tpcustomerapplicationelalaouihamza.session.CustomerManager;
 public class CustomerDetailsMBean implements Serializable {
   private int idCustomer;
   private Customer customer;
+  private DiscountCode discountCode;
 
   @EJB
   private CustomerManager customerManager;
+  
+  @EJB
+  private DiscountCodeManager discountCodeManager;
 
   public int getIdCustomer() {
     return idCustomer;
@@ -54,5 +61,12 @@ public class CustomerDetailsMBean implements Serializable {
 
   public void loadCustomer() {
     this.customer = customerManager.getCustomer(idCustomer);
+  }
+  
+  /**
+   * Retourne la liste de tous les DiscountCode.
+   */
+  public List<DiscountCode> getDiscountCodes() {
+    return discountCodeManager.getAllDiscountCodes();
   }
 }
